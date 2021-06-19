@@ -7,11 +7,11 @@
 
 
 #include<stdio.h>
-#define MAX 5
-int queue[MAX];
+#define MAX 5 // DT: why you are allowing only 5 elements only? Can you automatically increase the size of the queue if MAX is reached?
+int queue[MAX]; // Now, the queue is storing only the INT data. How will you make it to store FLOAT, STRING, or even USER DEFINED data types like structures? Make a generic queue
 int front=0,rear=0;
 
-void enqueue(int data)
+void enqueue(int data) 
 {
     rear=(rear+1)%MAX;
     if(front==rear)
@@ -23,11 +23,11 @@ void enqueue(int data)
         }
         else
         {
-            rear=rear-1;
+            rear=rear-1; // What is that, you are doing by all these MAX-1, rear-1? Explain.. 
             return;
         }
     }
-    queue[rear]=data;
+    queue[rear]=data; // Now., you are overwriting the data. If the queue is full, you need to tell the user that, it is full. You should not overwrite an existing data.
 }
 
 void dequeue()
@@ -37,7 +37,7 @@ void dequeue()
         printf("queue is empty");
         return;
     }
-    front=(front+1)%MAX;
+    front=(front+1)%MAX; // Instead of making the dequeue not returning anything, make it to return the element. you dont need to wait until peek gets called to know the element..
 }
 
 //returning the top element
