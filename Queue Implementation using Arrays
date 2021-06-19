@@ -1,0 +1,60 @@
+/*
+
+  Queue Implementation using Arrays in C 
+  By: Bhava0405
+  
+*/
+
+
+#include<stdio.h>
+#define MAX 5
+int queue[MAX];
+int front=0,rear=0;
+
+void enqueue(int data)
+{
+    rear=(rear+1)%MAX;
+    if(front==rear)
+    {
+        printf("queue is full");
+        if(rear==0)
+        {
+            rear=MAX-1;
+        }
+        else
+        {
+            rear=rear-1;
+            return;
+        }
+    }
+    queue[rear]=data;
+}
+
+void dequeue()
+{
+    if(front==rear)
+    {
+        printf("queue is empty");
+        return;
+    }
+    front=(front+1)%MAX;
+}
+
+int peek()
+{
+    return queue[front];
+}
+
+void main()
+{
+    int x,y;
+    enqueue(10);
+    enqueue(20);
+    enqueue(30);
+    dequeue();
+    x=peek();
+    dequeue();
+    y=peek();
+    printf("%d\n",x);
+    printf("%d",y);
+}
