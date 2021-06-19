@@ -40,6 +40,8 @@ void dequeue()
     front=(front+1)%MAX;
 }
 
+//returning the top element
+
 int peek()
 {
     return queue[front];
