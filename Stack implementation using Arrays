@@ -32,6 +32,8 @@ void pop()
     --top;
 }
 
+// returning the top element
+
 int peek()
 {
     return stack[top];
