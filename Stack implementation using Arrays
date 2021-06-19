@@ -1,0 +1,48 @@
+/*
+
+  Stack Implementation using Arrays in C 
+  By: Bhava0405
+  
+*/
+
+#include<stdio.h>
+#define MAX 5
+int stack[MAX];
+int top=-1;
+
+void push(int data)
+{
+    if(top==MAX-1)
+    {
+        printf("stack overflow");
+        return;
+    }
+    stack[++top]=data;
+}
+
+void pop()
+{
+    int temp;
+    if(top==-1)
+    {
+        printf("Stack is empty");
+        return;
+    }
+    temp=stack[top];
+    --top;
+}
+
+int peek()
+{
+    return stack[top];
+}
+
+void main()
+{
+    int x;
+    push(10);
+    push(20);
+    pop();
+    x=peek();
+    printf(" %d ",x);
+}
